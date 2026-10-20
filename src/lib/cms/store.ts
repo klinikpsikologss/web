@@ -1,20 +1,45 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { randomBytes } from "node:crypto";
+import { createClient, type RedisClientType } from "redis";
 
 /**
  * Basit anahtar-değer depolama.
  * - Varsayılan: proje klasöründeki `data/` dizininde JSON dosyaları (kendi sunucu / VPS için).
- * - UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN tanımlıysa Upstash Redis (Vercel gibi kalıcı diski olmayan ortamlar için).
+ * - UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN (ya da KV_REST_API_*) tanımlıysa Upstash Redis (REST).
+ * - KV_REDIS_URL / REDIS_URL tanımlıysa standart Redis bağlantısı (Vercel Marketplace > Redis).
+ * Vercel gibi kalıcı diski olmayan ortamlarda ikisinden biri gerekir.
  * Her anahtar için yazmalar sıraya alınır (okuyup-değiştirip-yazma çakışmalarını önler).
  */
 const DIR = process.env.DATA_DIR || path.join(process.cwd(), "data");
 // Vercel Marketplace entegrasyonu KV_REST_API_* adlarıyla da ekleyebilir; ikisi de desteklenir
 const REST_URL = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
 const REST_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
-const useRedis = Boolean(REST_URL && REST_TOKEN);
+const TCP_URL = process.env.KV_REDIS_URL || process.env.REDIS_URL;
+const useRest = Boolean(REST_URL && REST_TOKEN);
+const useRedis = useRest || Boolean(TCP_URL);
+
+// Standart Redis bağlantısı: sunucusuz ortamda örnek başına tek bağlantı, kopunca yeniden kurulur
+const g = globalThis as unknown as { __redis?: Promise<RedisClientType> };
+function tcp(): Promise<RedisClientType> {
+  if (!g.__redis) {
+    const client = createClient({ url: TCP_URL, socket: { connectTimeout: 5000, reconnectStrategy: false } }) as RedisClientType;
+    client.on("error", () => {
+      g.__redis = undefined;
+    });
+    g.__redis = client.connect().then(() => client).catch((e) => {
+      g.__redis = undefined;
+      throw e;
+    });
+  }
+  return g.__redis;
+}
 
 async function redis<T = unknown>(cmd: (string | number)[]): Promise<T> {
+  if (!useRest) {
+    const client = await tcp();
+    return (await client.sendCommand(cmd.map(String))) as T;
+  }
   const res = await fetch(REST_URL!, {
     method: "POST",
     headers: { Authorization: `Bearer ${REST_TOKEN}`, "Content-Type": "application/json" },
