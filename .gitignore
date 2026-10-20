@@ -1,0 +1,15 @@
+node_modules
+.next
+.env
+.env.*
+!.env.example
+.env*.local
+.vercel
+next-env.d.ts
+*.tsbuildinfo
+data/
+
+# Yerel araç klasörleri (skill kopyaları skills-lock.json ile geri yüklenir)
+.agents/
+.claude/
+.idea/
