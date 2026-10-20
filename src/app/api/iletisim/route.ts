@@ -4,10 +4,12 @@ import { recordEvent } from "@/lib/cms/analytics";
 import { readPublished, siteOf } from "@/lib/cms/content";
 import { clientIp, countHit, limitedFor } from "@/lib/cms/ratelimit";
 import { headers } from "next/headers";
+import { site } from "@/lib/site";
+import { ownerEmail } from "@/lib/email";
 
 // Ortam değişkenleri (Vercel > Settings > Environment Variables):
 //   RESEND_API_KEY      Resend API anahtarı
-//   CONTACT_FROM_EMAIL  Gönderen adres (Resend'de doğrulanmış alan adı), örn. "Web Sitesi <iletisim@klinikpsikologselinsak.com>"
+//   CONTACT_FROM_EMAIL  Gönderen adres (Resend'de doğrulanmış alan adı), örn. "Klinik Psikolog Selin Sak <bildirim@klinikpsikologselinsak.com>"
 //   CONTACT_TO_EMAIL    Mesajların gideceği adres (varsayılan: site.email)
 
 // Aynı IP'den saatte en fazla 5 mesaj (spam ve e-posta kotası koruması)
@@ -15,8 +17,6 @@ const FORM_LIMIT = 5;
 const FORM_WINDOW = 60 * 60_000;
 const oneLine = (s: string) => s.replace(/[\r\n]+/g, " ");
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 export async function POST(req: Request) {
   let data: Record<string, unknown>;
@@ -61,22 +61,20 @@ export async function POST(req: Request) {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM_EMAIL;
   if (key && from) {
-    const site = siteOf(await readPublished());
-    try {
-      await fetch("https://api.resend.com/emails", {
+    const s = siteOf(await readPublished());
+    const mailSite = { name: site.name, phone: s.phone, address: `${s.address.street}, ${s.address.district}/${s.address.city}`, url: site.url };
+    const contact = { name, phone, email, message };
+    const owner = process.env.CONTACT_TO_EMAIL || s.email;
+    const send = (payload: object) =>
+      fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          from,
-          to: [process.env.CONTACT_TO_EMAIL || site.email],
-          reply_to: email || undefined,
-          subject: `Web sitesi iletişim formu: ${name}`,
-          html: `<p><b>Ad:</b> ${esc(name)}</p><p><b>Telefon:</b> ${esc(phone) || "-"}</p><p><b>E-posta:</b> ${esc(email) || "-"}</p><p><b>Mesaj:</b><br>${esc(message).replace(/\n/g, "<br>")}</p>`,
-        }),
+        body: JSON.stringify({ from, ...payload }),
       });
-    } catch {
-      /* e-posta gönderilemese de mesaj panelde duruyor */
-    }
+
+    const toOwner = ownerEmail(contact, mailSite, new Date(), `${site.url}/panel/mesajlar`);
+    // E-posta gönderilemese de mesaj panelde duruyor; hata siteyi etkilemesin
+    await send({ to: [owner], reply_to: email || undefined, subject: toOwner.subject, html: toOwner.html, text: toOwner.text }).catch(() => undefined);
   }
   return NextResponse.json({ ok: true });
 }
