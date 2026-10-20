@@ -9,8 +9,9 @@ import { randomBytes } from "node:crypto";
  * Her anahtar için yazmalar sıraya alınır (okuyup-değiştirip-yazma çakışmalarını önler).
  */
 const DIR = process.env.DATA_DIR || path.join(process.cwd(), "data");
-const REST_URL = process.env.UPSTASH_REDIS_REST_URL;
-const REST_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+// Vercel Marketplace entegrasyonu KV_REST_API_* adlarıyla da ekleyebilir; ikisi de desteklenir
+const REST_URL = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+const REST_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
 const useRedis = Boolean(REST_URL && REST_TOKEN);
 
 async function redis<T = unknown>(cmd: (string | number)[]): Promise<T> {
