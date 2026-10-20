@@ -1,6 +1,6 @@
-// Uzmanlık alanları. Her başlığın kendi sayfası var: /uzmanliklar/[slug]
+// Uzmanlık alanları. Her başlığın kendi sayfası var: /calisma-alanlari/[slug]
 // İçerik yazıldıkça ilgili kaydın `body` alanına paragraflar eklenir (dizi içinde metin).
-// Görsel: public/uzmanliklar/<slug>.jpg dosyası varsa otomatik kullanılır, yoksa şık bir yer tutucu çıkar.
+// Görsel: sayfalarda başlığa özel vektör çizim (SpecialtyArt) kullanılır; panelden özel görsel eklenirse o gösterilir.
 
 export type CategoryKey = "kaygi" | "duygu" | "iliski" | "yeme" | "gunluk" | "ozel";
 

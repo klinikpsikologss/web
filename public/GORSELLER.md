@@ -12,7 +12,6 @@ Dosya yoksa site yer tutucu gösterir; eklenince otomatik kullanılır (build/de
 | `selin-hero.jpg` | Ana sayfa hero, YATAY 2560x1440 (16:9). Kişi sağ %40da, sol yarı sakin olmalı 
 | `selin-hakkimda.jpg` | Hakkımda sayfası ve ana sayfa tanıtım fotoğrafı (dikey 4:5) |
 | `klinik-1.jpg`, `klinik-2.jpg` ... (eski adı ofis-N.jpg de çalışır) | Ana sayfa galerisi, yatay 1800x1200 (3:2) |
-| `uzmanliklar/<slug>.jpg` | Her uzmanlık başlığı için görsel (4:5). Slug listesi: `src/lib/specialties.ts` |
 
 ## Sertifikalar
 `public/sertifikalar/` klasörüne sertifika görsellerini (jpg/png/webp) at; `/egitimler-ve-sertifikalar` sayfasında otomatik listelenir.
