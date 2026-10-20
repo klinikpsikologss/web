@@ -354,26 +354,6 @@ a.bezel:hover,
 }
 
 /* Camsı satır (SSS): yumuşak buzlu cam, ince iç parlama; açıkken altın ışık */
-/* Akordiyon içeriği: yükseklik animasyonu yerine kısa bir belirme (mobilde kasmaz) */
-@keyframes reveal-pop {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-.reveal-pop {
-  animation: reveal-pop 260ms var(--ease-soft) both;
-}
-@media (prefers-reduced-motion: reduce) {
-  .reveal-pop {
-    animation: none;
-  }
-}
-
 /* Telefonda bulanık cam (backdrop-filter) kapalı: kaydırmada ve düzen değişiminde her karede yeniden hesaplanıyor */
 @media (max-width: 639px) {
   .glass-card {
@@ -388,7 +368,6 @@ a.bezel:hover,
   overflow: hidden;
   border-radius: 1rem;
   background: linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.62));
-  /* Bulanıklık (backdrop-filter) bilerek yok: yükseklik animasyonunda her karede yeniden hesaplanıp mobilde takılıyordu. */
   contain: layout paint;
   box-shadow:
     0 0 0 1px rgba(15, 39, 71, 0.07),
@@ -396,6 +375,13 @@ a.bezel:hover,
     inset 0 1px 0 rgba(255, 255, 255, 1),
     0 18px 40px -26px rgba(15, 39, 71, 0.32);
   transition: box-shadow 800ms var(--ease-soft);
+}
+/* Buzlu cam yalnızca masaüstünde: telefonda yükseklik animasyonu sırasında her karede yeniden hesaplanıp takılıyordu */
+@media (min-width: 640px) {
+  .glass-row {
+    -webkit-backdrop-filter: blur(18px) saturate(1.15);
+    backdrop-filter: blur(18px) saturate(1.15);
+  }
 }
 .glass-row::before {
   content: "";

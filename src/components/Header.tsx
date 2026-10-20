@@ -33,7 +33,7 @@ export function Header({ logo, appointmentUrl }: { logo: React.ReactNode; appoin
     <>
       <header className="fixed inset-x-0 top-0 z-40 px-4 pt-4 sm:px-6 sm:pt-5">
         <div
-          className={`mx-auto flex max-w-6xl items-center justify-between rounded-full py-2.5 pl-6 pr-3 transition-[background-color,box-shadow] duration-700 ${ease} sm:pr-4 bg-ivory/80 shadow-[0_18px_50px_-24px_rgba(15,39,71,0.35),inset_0_0_0_1px_rgba(15,39,71,0.06)] sm:backdrop-blur-xl`}
+          className={`mx-auto flex max-w-6xl items-center justify-between rounded-full py-2.5 pl-6 pr-3 transition-[background-color,box-shadow] duration-700 ${ease} sm:pr-4 bg-ivory/[0.97] sm:bg-ivory/80 shadow-[0_18px_50px_-24px_rgba(15,39,71,0.35),inset_0_0_0_1px_rgba(15,39,71,0.06)] sm:backdrop-blur-xl`}
         >
           <Link href="/" aria-label="Ana sayfa" className="shrink-0">
             {logo}
@@ -88,7 +88,7 @@ export function Header({ logo, appointmentUrl }: { logo: React.ReactNode; appoin
       <div
         id="mobile-menu"
         aria-hidden={!open}
-        className={`fixed inset-0 z-30 flex flex-col justify-center bg-ivory/95 px-8 backdrop-blur-2xl transition-[opacity,visibility] duration-700 ${ease} lg:hidden ${
+        className={`fixed inset-0 z-30 flex flex-col justify-center bg-ivory/[0.98] px-8 transition-[opacity,visibility] duration-700 ${ease} lg:hidden ${
           open ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
