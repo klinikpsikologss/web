@@ -359,8 +359,8 @@ a.bezel:hover,
   overflow: hidden;
   border-radius: 1rem;
   background: linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.62));
-  -webkit-backdrop-filter: blur(18px) saturate(1.15);
-  backdrop-filter: blur(18px) saturate(1.15);
+  /* Bulanıklık (backdrop-filter) bilerek yok: yükseklik animasyonunda her karede yeniden hesaplanıp mobilde takılıyordu. */
+  contain: layout paint;
   box-shadow:
     0 0 0 1px rgba(15, 39, 71, 0.07),
     inset 0 0 0 1px rgba(255, 255, 255, 0.9),

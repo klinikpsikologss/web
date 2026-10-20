@@ -56,7 +56,7 @@ export function Settings({ site: s0, seo: seo0, theme: th0, username, history }:
           <Field label="Şehir"><input {...s("city")} /></Field>
           <Field label="Instagram adresi"><input {...s("instagram")} /></Field>
           <Field label="LinkedIn adresi"><input {...s("linkedin")} /></Field>
-          <Field label="Randevu bağlantısı" hint="Sitedeki tüm “Randevu Al” butonları bu adrese gider (https:// ile başlamalı)." className="sm:col-span-2"><input {...s("appointmentUrl")} placeholder="https://www.doktorsitesi.com/..." /></Field>
+          <Field label="Randevu bağlantısı" hint="Sitedeki tüm “Randevu Al” butonları bu adrese gider (https:// ile başlamalı)." className="sm:col-span-2"><input {...s("appointmentUrl")} placeholder="https://wa.me/905322723614?text=..." /></Field>
         </div>
         <Btn className="mt-6" onClick={() => save({ site })}>Taslağa kaydet</Btn>
       </Card>

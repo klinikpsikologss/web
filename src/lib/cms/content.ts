@@ -111,8 +111,11 @@ const KEY_DRAFT = "content:draft";
 const KEY_META = "content:meta";
 const KEY_HIST = "content:history";
 
+// Her dağıtımda önbellek anahtarı değişir: koddaki varsayılan içerik/ayar değişiklikleri eski önbellekte takılı kalmaz.
+const BUILD = process.env.VERCEL_GIT_COMMIT_SHA ?? process.env.VERCEL_DEPLOYMENT_ID ?? `local-${Date.now()}`;
+
 export const readPublished = async (): Promise<Content> => merge(await getJSON<Partial<Content> | null>(KEY_PUB, null));
-const publishedCached = unstable_cache(readPublished, ["cms-published", "v5"], { tags: ["cms"] });
+const publishedCached = unstable_cache(readPublished, ["cms-published", BUILD], { tags: ["cms"] });
 
 export async function readDraft(): Promise<Content> {
   const draft = await getJSON<Partial<Content> | null>(KEY_DRAFT, null);

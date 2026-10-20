@@ -10,8 +10,8 @@ export const site = {
   phoneHref: "tel:+905322723614",
   whatsappHref: "https://wa.me/905322723614",
   email: "klinikpsikolog@selinsak.com",
-  // Randevular bu adres üzerinden alınır.
-  appointmentUrl: "https://www.doktorsitesi.com/selin-sak/psikoloji-klinik-psikolog/bolu",
+  // "Randevu Al" butonları doğrudan WhatsApp sohbetini açar (ön tanımlı mesajla).
+  appointmentUrl: "https://wa.me/905322723614?text=Merhaba%2C%20randevu%20almak%20istiyorum.",
   address: {
     street: "Borazanlar Mah. 406. Sk. Ata Konutları B Blok No: 1 Kat: 4 Daire: 11",
     district: "Merkez",

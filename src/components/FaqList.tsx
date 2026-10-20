@@ -43,7 +43,7 @@ export function FaqList({ items }: { items: Faq[] }) {
               id={`${id}-p`}
               role="region"
               aria-labelledby={`${id}-b`}
-              className={`grid transition-[grid-template-rows,opacity] duration-700 ${soft} ${on ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+              className={`grid transition-[grid-template-rows,opacity] duration-500 ${soft} ${on ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
             >
               <div className="overflow-hidden">
                 <p className="px-5 pb-6 pr-14 font-sans text-[0.97rem] leading-relaxed text-muted sm:px-7 sm:pr-16">{f.a}</p>

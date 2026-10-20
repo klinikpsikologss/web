@@ -87,13 +87,13 @@ const sections: Record<string, (c: C) => ReactNode | Promise<ReactNode>> = {
           {c.therapies.map((t, i) => (
             <Reveal as="li" key={t.slug} delay={i * 120} className="w-[84%] shrink-0 snap-start md:w-auto">
               <Link href={`/terapi/${t.slug}`} className="glass-card group block h-full">
-                <div className="flex h-full flex-col p-7 sm:p-9">
+                <div className="flex h-full flex-col p-6 sm:p-9">
                   <span className="grid h-14 w-14 place-items-center rounded-full bg-navy/[0.06] text-gold-deep shadow-[inset_0_0_0_1px_rgba(15,39,71,0.08)] transition-colors duration-[1000ms] [transition-timing-function:var(--ease-soft)] group-hover:bg-navy group-hover:text-gold">
                     <TherapyIcon name={t.slug} />
                   </span>
-                  <h3 className="mt-7 text-[1.9rem] leading-tight">{t.title}</h3>
-                  <p className="mt-4 flex-1 text-[0.97rem] leading-relaxed text-muted">{t.short}</p>
-                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-gold-deep">
+                  <h3 className="mt-6 text-[1.7rem] leading-tight sm:mt-7 sm:text-[1.9rem]">{t.title}</h3>
+                  <p className="mt-4 line-clamp-5 flex-1 text-[0.97rem] leading-relaxed text-muted md:line-clamp-6">{t.short}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gold-deep sm:mt-8">
                     Detaylı bilgi
                     <Arrow className="transition-transform duration-[900ms] [transition-timing-function:var(--ease-soft)] group-hover:translate-x-2" />
                   </span>
