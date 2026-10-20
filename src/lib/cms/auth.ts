@@ -20,17 +20,21 @@ export const isPanelConfigured = async () => Boolean(DEFAULT_PASS) || (await get
 export const SESSION_COOKIE = "panel_session";
 const SESSION_DAYS = 7;
 
-type Credentials = { username: string; salt: string; hash: string };
+type Credentials = { username: string; salt: string; hash: string; /** Hangi PANEL_RESET_AUTH değeriyle sıfırlandı */ resetToken?: string };
 
 const scryptAsync = (pw: string, salt: string) =>
   new Promise<Buffer>((resolve, reject) => scrypt(pw, salt, 64, (e, k) => (e ? reject(e) : resolve(k))));
 
 async function getCredentials(): Promise<Credentials> {
   const stored = await getJSON<Credentials | null>("auth", null);
-  if (stored) return stored;
+  // Kurtarma: Vercel'de PANEL_RESET_AUTH'a her yeni bir değer verildiğinde (örn. 1, 2, ...) kayıtlı giriş bilgileri
+  // bir kez PANEL_USERNAME / PANEL_PASSWORD değerlerinden yeniden oluşturulur. Şifre unutulduğunda ya da env ile değiştirildiğinde kullanılır.
+  const resetToken = process.env.PANEL_RESET_AUTH?.trim() || undefined;
+  const needsReset = Boolean(resetToken && DEFAULT_PASS && stored?.resetToken !== resetToken);
+  if (stored && !needsReset) return stored;
   if (!DEFAULT_PASS) throw new Error("PANEL_NOT_CONFIGURED");
   const salt = randomBytes(16).toString("hex");
-  const creds = { username: DEFAULT_USER, salt, hash: (await scryptAsync(DEFAULT_PASS, salt)).toString("hex") };
+  const creds: Credentials = { username: DEFAULT_USER, salt, hash: (await scryptAsync(DEFAULT_PASS, salt)).toString("hex"), ...(resetToken ? { resetToken } : {}) };
   await setJSON("auth", creds);
   return creds;
 }
@@ -69,6 +73,8 @@ export async function changeCredentials(newPassword: string | null, newUsername?
     username: newUsername?.trim() || cur.username,
     salt,
     hash: newPassword ? (await scryptAsync(newPassword, salt)).toString("hex") : cur.hash,
+    // Aynı sıfırlama değeriyle tekrar sıfırlanmasın: panelden değiştirilen şifre env ile ezilmez
+    ...(cur.resetToken ? { resetToken: cur.resetToken } : {}),
   });
 }
 
