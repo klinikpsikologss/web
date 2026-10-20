@@ -84,7 +84,7 @@ export default async function PostPage({ params }: Props) {
 
       {/* Başlık */}
       <header className="relative isolate overflow-hidden px-6 pb-10 pt-36 sm:px-8 sm:pb-14 sm:pt-44">
-        <div className="pointer-events-none absolute -right-32 -top-24 -z-10 h-[28rem] w-[28rem] rounded-full bg-gold/30 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-32 -top-24 -z-10 h-[28rem] w-[28rem] rounded-full bg-gold/30 max-sm:hidden blur-3xl" aria-hidden="true" />
         <div className="mx-auto max-w-4xl">
           <nav aria-label="Konum" className="hero-in text-sm text-muted">
             <Link href="/blog" className="link-soft text-gold-deep">

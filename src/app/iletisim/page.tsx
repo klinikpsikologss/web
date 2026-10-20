@@ -69,8 +69,8 @@ export default async function Contact() {
 
           <Reveal delay={120}>
             <div className="relative isolate overflow-hidden rounded-[1.5rem] bg-navy p-7 shadow-[0_50px_90px_-40px_rgba(15,39,71,0.7)] sm:p-12">
-              <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-gold/25 blur-3xl" />
-              <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -left-20 -z-10 h-72 w-72 rounded-full bg-navy-soft blur-3xl" />
+              <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-gold/25 max-sm:hidden blur-3xl" />
+              <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -left-20 -z-10 h-72 w-72 rounded-full bg-navy-soft max-sm:hidden blur-3xl" />
               <h2 className="text-3xl !text-ivory sm:text-4xl">Mesaj bırakın</h2>
               <p className="mb-8 mt-3 text-ivory/70">Formu doldurun, en kısa sürede size dönüş yapayım.</p>
               <ContactForm />

@@ -189,7 +189,7 @@ export function SpecialtyArt({ slug, category, label }: { slug: string; category
   const glyph = glyphs[slug];
   return (
     <div role="img" aria-label={label} className="relative isolate grid aspect-[4/5] place-items-center overflow-hidden rounded-[0.5rem] bg-gradient-to-br from-navy-soft via-navy to-navy-deep">
-      <div className="absolute -right-16 -top-20 -z-10 h-64 w-64 rounded-full bg-gold/20 blur-3xl" aria-hidden="true" />
+      <div className="absolute -right-16 -top-20 -z-10 h-64 w-64 rounded-full bg-gold/20 max-sm:hidden blur-3xl" aria-hidden="true" />
       <svg viewBox="0 0 400 500" className="absolute inset-0 h-full w-full text-gold" fill="none" stroke="currentColor" aria-hidden="true">
         <circle cx="200" cy="250" r="64" strokeWidth="1" opacity=".55" />
         <circle cx="200" cy="250" r="110" strokeWidth="1" opacity=".38" />

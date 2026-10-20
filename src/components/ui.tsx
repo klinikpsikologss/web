@@ -102,7 +102,7 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden px-6 pb-10 pt-32 sm:px-8 sm:pb-12 sm:pt-48 lg:pb-16">
-      <div className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-gold/25 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-gold/25 max-sm:hidden blur-3xl" aria-hidden="true" />
       <div className="relative mx-auto max-w-6xl">
         {eyebrow && (
           <Txt editKey={editKey} suffix="eyebrow" as="p" className="hero-in mb-6 inline-flex items-center gap-3 text-sm tracking-wide text-gold-deep">
@@ -143,7 +143,7 @@ export async function ContactBand({
       <Reveal className="mx-auto max-w-6xl">
         <div className="bezel">
           <div className="bezel-core relative isolate overflow-hidden !bg-navy px-6 py-14 text-center sm:px-16 sm:py-20">
-            <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-64 w-[36rem] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/15 blur-3xl" aria-hidden="true" />
+            <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-64 w-[36rem] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/15 max-sm:hidden blur-3xl" aria-hidden="true" />
             <Txt editKey={editKey} suffix="title" as="h2" className="mx-auto max-w-3xl text-[1.7rem] leading-snug !text-ivory sm:text-[2.4rem] sm:leading-[1.25]">
               {title}
             </Txt>

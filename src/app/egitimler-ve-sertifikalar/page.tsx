@@ -36,8 +36,8 @@ export default async function Education() {
       />
 
       <section className="relative isolate overflow-hidden px-6 sm:px-8 section-pb">
-        <div className="pointer-events-none absolute -left-24 top-[10%] -z-10 h-80 w-80 rounded-full bg-gold/40 blur-3xl" aria-hidden="true" />
-        <div className="pointer-events-none absolute -right-20 top-[55%] -z-10 h-96 w-96 rounded-full bg-navy/[0.08] blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -left-24 top-[10%] -z-10 h-80 w-80 rounded-full bg-gold/40 max-sm:hidden blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-20 top-[55%] -z-10 h-96 w-96 rounded-full bg-navy/[0.08] max-sm:hidden blur-3xl" aria-hidden="true" />
         <div className="mx-auto max-w-6xl space-y-16 sm:space-y-24">
           {groups.map((g) => (
             <div key={g.title}>

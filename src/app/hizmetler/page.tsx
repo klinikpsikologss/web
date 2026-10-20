@@ -25,8 +25,8 @@ export default async function Working() {
         lead="Psikoterapi hizmetlerimi bireysel terapi ve çift terapisi alanında, yüz yüze ve online olarak yürütmekteyim."
       />
       <section className="relative isolate overflow-hidden px-6 sm:px-8 section-pb">
-        <div className="pointer-events-none absolute left-[12%] top-[10%] -z-10 h-72 w-72 rounded-full bg-gold/55 blur-3xl" aria-hidden="true" />
-        <div className="pointer-events-none absolute right-[10%] bottom-[8%] -z-10 h-80 w-80 rounded-full bg-navy/[0.16] blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute left-[12%] top-[10%] -z-10 h-72 w-72 rounded-full bg-gold/55 max-sm:hidden blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute right-[10%] bottom-[8%] -z-10 h-80 w-80 rounded-full bg-navy/[0.16] max-sm:hidden blur-3xl" aria-hidden="true" />
         <ul className="mx-auto max-w-6xl space-y-6">
           {c.therapies.map((t) => (
             <Reveal as="li" key={t.slug}>

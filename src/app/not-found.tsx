@@ -12,8 +12,8 @@ const links = [
 export default function NotFound() {
   return (
     <section className="relative isolate overflow-hidden px-6 pb-16 pt-36 sm:px-8 sm:pb-24 sm:pt-44">
-      <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-[30rem] w-[30rem] rounded-full bg-gold/35 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute -left-32 bottom-0 -z-10 h-96 w-96 rounded-full bg-navy/[0.08] blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-[30rem] w-[30rem] rounded-full bg-gold/35 max-sm:hidden blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -left-32 bottom-0 -z-10 h-96 w-96 rounded-full bg-navy/[0.08] max-sm:hidden blur-3xl" aria-hidden="true" />
 
       <div className="mx-auto max-w-5xl text-center">
         <p aria-hidden="true" className="hero-in select-none font-display text-[7.5rem] font-medium leading-none text-gold/60 sm:text-[12rem]">

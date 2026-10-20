@@ -28,7 +28,7 @@ export default async function Specialties() {
       />
 
       <section className="relative isolate overflow-hidden px-6 sm:px-8 section-pb">
-        <div className="pointer-events-none absolute -right-24 top-[8%] -z-10 h-80 w-80 rounded-full bg-gold/40 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-24 top-[8%] -z-10 h-80 w-80 rounded-full bg-gold/40 max-sm:hidden blur-3xl" aria-hidden="true" />
         <div className="mx-auto max-w-6xl space-y-12 sm:space-y-14">
           {categories.map((cat) => {
             const items = ct.specialties.filter((x) => x.category === cat.key);

@@ -37,8 +37,8 @@ export default async function Blog() {
       <JsonLd data={[breadcrumbLd([{ name: "Blog", path: "/blog" }]), webPageLd({ type: "CollectionPage", name: "Blog", path: "/blog" })]} />
       {/* Giriş */}
       <section className="relative isolate overflow-hidden px-6 pb-10 pt-36 sm:px-8 sm:pb-14 sm:pt-44">
-        <div className="pointer-events-none absolute -right-32 -top-24 -z-10 h-[30rem] w-[30rem] rounded-full bg-gold/35 blur-3xl" aria-hidden="true" />
-        <div className="pointer-events-none absolute -left-40 top-40 -z-10 h-80 w-80 rounded-full bg-navy/[0.07] blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-32 -top-24 -z-10 h-[30rem] w-[30rem] rounded-full bg-gold/35 max-sm:hidden blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -left-40 top-40 -z-10 h-80 w-80 rounded-full bg-navy/[0.07] max-sm:hidden blur-3xl" aria-hidden="true" />
         <div className="mx-auto max-w-6xl">
           <p className="hero-in mb-6 text-sm tracking-wide text-gold-deep">Blog</p>
           <h1 className="hero-in max-w-3xl text-5xl leading-[1.05] sm:text-6xl lg:text-7xl" style={d(100)}>

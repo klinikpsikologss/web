@@ -38,8 +38,8 @@ export function ActivityAccordion({ groups }: { groups: ActivityGroup[] }) {
                 </span>
               </button>
             </h3>
-            <div id={`act-${gi}`} className={`grid transition-[grid-template-rows] duration-[800ms] ${ease} ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-              <div className="overflow-hidden" inert={!isOpen}>
+            <div id={`act-${gi}`} hidden={!isOpen} className={isOpen ? "reveal-pop" : undefined}>
+              <div>
                 <ul className="mx-3 mb-3 divide-y divide-navy/10 rounded-[0.6rem] bg-paper px-4 sm:mx-5 sm:mb-5 sm:px-6">
                   {shown.map((it, i) => (
                     <li key={`${it.title}-${it.date}-${i}`} className="py-4">
