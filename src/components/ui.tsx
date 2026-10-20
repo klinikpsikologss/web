@@ -101,8 +101,8 @@ export function PageHero({
   editKey?: string;
 }) {
   return (
-    <section className="relative overflow-hidden px-6 pb-10 pt-32 sm:px-8 sm:pb-12 sm:pt-48 lg:pb-16">
-      <div className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-gold/25 max-sm:hidden blur-3xl" aria-hidden="true" />
+    <section className="relative overflow-hidden px-6 pb-12 pt-32 sm:px-8 sm:pb-16 sm:pt-48 lg:pb-20">
+      <div className="pointer-events-none absolute -right-36 -top-48 h-[26rem] w-[26rem] rounded-full bg-gold/25 max-sm:hidden blur-3xl" aria-hidden="true" />
       <div className="relative mx-auto max-w-6xl">
         {eyebrow && (
           <Txt editKey={editKey} suffix="eyebrow" as="p" className="hero-in mb-6 inline-flex items-center gap-3 text-sm tracking-wide text-gold-deep">
