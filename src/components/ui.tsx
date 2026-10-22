@@ -95,18 +95,18 @@ export function PageHero({
   children?: ReactNode;
   editKey?: string;
   /** Giriş alanına arka plan olarak konan fotoğraf (sağda, sola doğru kremle erir) */
-  image?: { src: string; position?: string };
+  image?: { src: string; position?: string; editId?: string };
 }) {
   return (
     <section className="relative isolate overflow-hidden px-6 pb-12 pt-32 sm:px-8 sm:pb-16 sm:pt-48 lg:pb-20">
       {image ? (
         <>
-          <Photo src={image.src} alt="" sizes="100vw" priority position={image.position ?? "center"} className="absolute inset-0 -z-10 lg:left-[28%]" />
+          <Photo src={image.src} alt="" sizes="100vw" priority position={image.position ?? "center"} editId={image.editId} className="absolute inset-0 -z-10 lg:left-[28%]" />
           <div
-            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-ivory)_0%,rgb(248_245_238/0.9)_38%,rgb(248_245_238/0.45)_62%,rgb(248_245_238/0.1)_100%)] max-lg:bg-ivory/80 lg:bg-[linear-gradient(to_right,var(--color-ivory)_28%,rgb(248_245_238/0.55)_52%,transparent_82%)]"
+            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-ivory)_0%,rgb(248_245_238/0.9)_38%,rgb(248_245_238/0.45)_62%,rgb(248_245_238/0.1)_100%)] pointer-events-none max-lg:bg-ivory/80 lg:bg-[linear-gradient(to_right,var(--color-ivory)_28%,rgb(248_245_238/0.55)_52%,transparent_82%)]"
             aria-hidden="true"
           />
-          <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-ivory to-transparent" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-ivory to-transparent" aria-hidden="true" />
         </>
       ) : (
         <div className="pointer-events-none absolute -right-36 -top-48 h-[26rem] w-[26rem] rounded-full bg-gold/25 max-sm:hidden blur-3xl" aria-hidden="true" />

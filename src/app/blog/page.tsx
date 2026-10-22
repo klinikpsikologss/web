@@ -18,15 +18,15 @@ export default async function Blog() {
   const c = await getContent();
   const posts = visiblePosts(c);
   const categories = postCategories(c);
-  const hero = { src: "/blog-hero.jpg", position: "68% 40%" };
+  const hero = { src: "/blog-hero.jpg", position: "68% 40%", editId: "blog.hero" };
   if (posts.length === 0) {
-    return <PageHero eyebrow="Yazılar" title="Blog" lead="Yazılar çok yakında burada olacak." image={hero} />;
+    return <PageHero editKey="blog" eyebrow="Yazılar" title="Blog" lead="Yazılar çok yakında burada olacak." image={hero} />;
   }
 
   return (
     <>
       <JsonLd data={[breadcrumbLd([{ name: "Blog", path: "/blog" }]), webPageLd({ type: "CollectionPage", name: "Blog", path: "/blog" })]} />
-      <PageHero eyebrow="Yazılar" title="Blog" lead="Psikoloji ve psikoterapiye dair bilimsel temelli yazılar." image={hero} />
+      <PageHero editKey="blog" eyebrow="Yazılar" title="Blog" lead="Psikoloji ve psikoterapiye dair bilimsel temelli yazılar." image={hero} />
 
       {/* Tüm yazılar */}
       <section className="px-6 sm:px-8 section-pb">

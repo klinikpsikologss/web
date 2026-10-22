@@ -19,6 +19,9 @@ const IMAGE_LABELS: Record<string, string> = {
   "hero.desktop": "Hero görseli (masaüstü)",
   "hero.mobile": "Hero görseli (mobil)",
   "about.photo": "Hakkımda fotoğrafı",
+  "alanlar.hero": "Çalışma Alanları arka plan fotoğrafı",
+  "blog.hero": "Blog arka plan fotoğrafı",
+  "author.avatar": "Yazar fotoğrafı (blog yazıları)",
 };
 
 const PENCIL = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19l-4 1z"/></svg>`;

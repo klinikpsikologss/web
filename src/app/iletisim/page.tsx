@@ -5,6 +5,7 @@ import { Button, PageHero } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { Mail, Phone, Pin } from "@/components/Icons";
+import { Edit } from "@/components/cms/Edit";
 import { getContent, siteOf } from "@/lib/cms/content";
 
 export const metadata: Metadata = withOg({
@@ -63,7 +64,7 @@ export default async function Contact() {
             </ul>
             <p className="mt-6 flex items-start gap-3 rounded-2xl bg-gold/20 px-5 py-4 text-sm leading-relaxed text-navy/80">
               <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-deep" />
-              Yüz yüze seanslar Bolu’daki kliniğimde, online seanslar görüntülü olarak gerçekleştirilir.
+              <Edit id="iletisim.note">Yüz yüze seanslar Bolu’daki kliniğimde, online seanslar görüntülü olarak gerçekleştirilir.</Edit>
             </p>
           </Reveal>
 
@@ -71,8 +72,8 @@ export default async function Contact() {
             <div className="relative isolate overflow-hidden rounded-[1.5rem] bg-navy p-7 shadow-[0_50px_90px_-40px_rgba(15,39,71,0.7)] sm:p-12">
               <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-gold/25 max-sm:hidden blur-3xl" />
               <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -left-20 -z-10 h-72 w-72 rounded-full bg-navy-soft max-sm:hidden blur-3xl" />
-              <h2 className="text-3xl !text-ivory sm:text-4xl">Mesaj Bırakın</h2>
-              <p className="mb-8 mt-3 text-ivory/70">Sorularınızı ve randevu taleplerinizi form aracılığıyla iletebilirsiniz.</p>
+              <Edit id="iletisim.form.title" as="h2" className="text-3xl !text-ivory sm:text-4xl">Mesaj Bırakın</Edit>
+              <Edit id="iletisim.form.lead" as="p" className="mb-8 mt-3 text-ivory/70">Sorularınızı ve randevu taleplerinizi form aracılığıyla iletebilirsiniz.</Edit>
               <ContactForm />
             </div>
           </Reveal>
@@ -93,8 +94,8 @@ export default async function Contact() {
           <div className="pointer-events-none px-6 py-6 sm:px-8 lg:absolute lg:inset-0 lg:flex lg:items-center lg:py-0">
             <div className="mx-auto w-full max-w-6xl">
               <div className="glass-card pointer-events-auto p-7 hover:!transform-none lg:max-w-sm [&::before]:hidden">
-                <p className="eyebrow">Klinik Konumu</p>
-                <p className="mt-4 font-display text-2xl leading-snug text-navy">Kln. Psk. {site.shortName}</p>
+                <Edit id="iletisim.map.eyebrow" as="p" className="eyebrow">Klinik Konumu</Edit>
+                <Edit id="iletisim.map.name" as="p" className="mt-4 font-display text-2xl leading-snug text-navy">{`Kln. Psk. ${site.shortName}`}</Edit>
                 <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">
                   {site.address.street}, {site.address.district}/{site.address.city}
                 </p>

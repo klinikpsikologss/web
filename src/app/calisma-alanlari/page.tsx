@@ -25,7 +25,7 @@ export default async function Specialties() {
         eyebrow="Psikoterapi"
         title="Çalışma alanları"
         lead="Bilimsel temellere dayalı, kişiye özgü psikoterapi süreci."
-        image={{ src: "/ofis-11.jpg", position: "60% 55%" }}
+        image={{ src: "/ofis-11.jpg", position: "60% 55%", editId: "alanlar.hero" }}
       />
 
       <section className="relative isolate overflow-hidden px-6 sm:px-8 section-pb">

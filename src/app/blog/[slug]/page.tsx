@@ -103,7 +103,7 @@ export default async function PostPage({ params }: Props) {
           )}
           <div className="hero-in mt-9 flex items-center gap-4" style={{ "--d": "300ms" } as React.CSSProperties}>
             {hasAsset(avatar) ? (
-              <Photo src={avatar} alt="" sizes="48px" className="h-12 w-12 rounded-full" position="center 20%" />
+              <Photo src={avatar} alt="" sizes="48px" editId="author.avatar" className="h-12 w-12 rounded-full" position="center 20%" />
             ) : (
               <span className="grid h-12 w-12 place-items-center rounded-full bg-navy text-gold">
                 <Mark className="h-6 w-6" />
@@ -215,7 +215,7 @@ export default async function PostPage({ params }: Props) {
         <Reveal className="mx-auto max-w-5xl">
           <div className="glass-card grid items-center gap-8 p-7 sm:grid-cols-[auto_1fr_auto] sm:p-10">
             {hasAsset(avatar) ? (
-              <Photo src={avatar} alt="Klinik Psikolog Selin Sak" sizes="112px" className="h-24 w-24 rounded-full sm:h-28 sm:w-28" position="center 20%" />
+              <Photo src={avatar} alt="Klinik Psikolog Selin Sak" sizes="112px" editId="author.avatar" className="h-24 w-24 rounded-full sm:h-28 sm:w-28" position="center 20%" />
             ) : (
               <span className="grid h-24 w-24 place-items-center rounded-full bg-navy text-gold sm:h-28 sm:w-28">
                 <Mark className="h-10 w-10" />

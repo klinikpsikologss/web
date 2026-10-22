@@ -81,7 +81,7 @@ export async function Footer() {
           </ul>
           <div className="md:text-right">
             <p>© {new Date().getFullYear()} Selin Sak. Tüm hakları saklıdır.</p>
-            <p className="mt-1">Bolu, Türkiye</p>
+            <Edit id="footer.location" as="p" className="mt-1">Bolu, Türkiye</Edit>
           </div>
         </div>
       </div>
