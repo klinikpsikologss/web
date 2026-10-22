@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { ActivityGroup } from "@/lib/about";
+import { titleCase } from "@/lib/titlecase";
 
 const ease = "[transition-timing-function:var(--ease-soft)]";
 const PREVIEW = 5;
@@ -29,7 +30,7 @@ export function ActivityAccordion({ groups }: { groups: ActivityGroup[] }) {
                 className="flex w-full items-center gap-4 px-5 py-4 text-left sm:px-7 sm:py-5"
               >
                 <span className="min-w-0 flex-1">
-                  <span className="block font-display text-[1.3rem] leading-snug text-navy sm:text-[1.55rem]">{g.title}</span>
+                  <span className="block font-display text-[1.3rem] leading-snug text-navy sm:text-[1.55rem]">{titleCase(g.title)}</span>
                   <span className="mt-0.5 block font-sans text-[0.9rem] font-normal leading-snug text-muted">{g.lead}</span>
                 </span>
                 <span className="relative h-5 w-5 shrink-0 text-gold-deep" aria-hidden="true">

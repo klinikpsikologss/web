@@ -7,14 +7,6 @@ import { nav } from "@/lib/site";
 
 const ease = "[transition-timing-function:var(--ease-soft)]";
 
-function ArrowIcon({ size = 14 }: { size?: number }) {
-  return (
-    <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
 /** Yüzen cam hap menü; mobilde tam ekran, sıralı açılan menü. */
 export function Header({ logo, appointmentUrl }: { logo: React.ReactNode; appointmentUrl: string }) {
   const [open, setOpen] = useState(false);
@@ -63,11 +55,8 @@ export function Header({ logo, appointmentUrl }: { logo: React.ReactNode; appoin
                 </Link>
               );
             })}
-            <a href={appointmentUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary ml-3 !py-1.5 !pl-5 !pr-1.5">
+            <a href={appointmentUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary ml-3 !px-5 !py-2">
               Randevu Al
-              <span className="btn-dot !h-8 !w-8">
-                <ArrowIcon />
-              </span>
             </a>
           </nav>
 
@@ -112,9 +101,6 @@ export function Header({ logo, appointmentUrl }: { logo: React.ReactNode; appoin
           >
             <a href={appointmentUrl} target="_blank" rel="noopener noreferrer" tabIndex={open ? 0 : -1} className="btn btn-primary">
               Randevu Al
-              <span className="btn-dot">
-                <ArrowIcon size={18} />
-              </span>
             </a>
           </div>
         </nav>

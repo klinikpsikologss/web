@@ -20,7 +20,7 @@ export const categories: { key: CategoryKey; title: string; lead: string }[] = [
   { key: "iliski", title: "İlişkiler ve İletişim", lead: "Çift, aile ve yakın ilişkilerdeki örüntüleri fark etmek için güvenli bir alan." },
   { key: "yeme", title: "Yeme Sorunları", lead: "Yeme ve beden algısıyla kurulan ilişkiyi yargılamadan, bilimsel çerçevede ele alırız." },
   { key: "gunluk", title: "Stres ve Günlük Yaşam", lead: "Tükenmişlikten erteleme alışkanlığına, günlük hayatı zorlaştıran süreçler." },
-  { key: "ozel", title: "Özel Alanlar", lead: "Daha özel destek gerektiren yaşam süreçlerinde yanınızda olmak." },
+  { key: "ozel", title: "Özgül Klinik Alanlar", lead: "Daha özel destek gerektiren yaşam süreçlerinde yanınızda olmak." },
 ];
 
 export const specialties: Specialty[] = [
@@ -56,8 +56,8 @@ export const specialties: Specialty[] = [
   { slug: "erteleme-ve-karar-verme-zorluklari", title: "Erteleme ve karar verme zorlukları", category: "gunluk" },
   { slug: "dikkat-eksikligi-ve-hiperaktivite-bozuklugu", title: "Dikkat eksikliği ve hiperaktivite bozukluğu", category: "gunluk" },
   // Özel Alanlar
-  { slug: "bagimlilik", title: "Bağımlılık", category: "ozel" },
   { slug: "psikoonkoloji", title: "Psikoonkoloji", category: "ozel" },
+  { slug: "bagimlilik", title: "Bağımlılık", category: "ozel" },
   { slug: "hamilelik-ve-dogum-sonrasi-surecler", title: "Çocuk sahibi olma, hamilelik ve doğum sonrası süreçler", category: "ozel" },
   { slug: "infertilite-ve-tup-bebek-sureci", title: "İnfertilite ve tüp bebek süreci", category: "ozel" },
 ];

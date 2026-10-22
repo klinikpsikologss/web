@@ -20,7 +20,7 @@ export default async function ClinicPhotos() {
   return (
     <>
       <JsonLd data={[breadcrumbLd([{ name: "Klinik Görselleri", path: "/klinik-gorselleri" }]), webPageLd({ type: "WebPage", name: "Klinik Görselleri", path: "/klinik-gorselleri" })]} />
-      <PageHero editKey="klinik" eyebrow="Klinik" title="Klinik görselleri" lead="Görüşmelerin yapıldığı sakin ve güvenli alandan görüntüler." />
+      <PageHero editKey="klinik" eyebrow="Klinik" title="Klinik Görselleri" lead="Psikoterapi görüşmelerinin yapıldığı sakin ve güvenli klinik ortamından görüntüler." />
       <section className="px-6 sm:px-8 section-pb">
         <Reveal className="mx-auto max-w-6xl">
           {ct.__draft && <div data-edit-add="gal" data-edit-label="Klinik fotoğrafı ekle" />}

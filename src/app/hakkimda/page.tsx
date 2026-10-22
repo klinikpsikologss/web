@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbLd, webPageLd, withOg } from "@/lib/seo";
-import Image from "next/image";
 import { ContactBand } from "@/components/ui";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
-import { Carousel } from "@/components/Carousel";
+import { Gallery } from "@/components/Gallery";
 import { ActivityAccordion } from "@/components/ActivityAccordion";
 import { Edit } from "@/components/cms/Edit";
 import { bio } from "@/lib/about";
@@ -71,7 +70,7 @@ export default async function About() {
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <h2 id="uyelikler" className="text-3xl sm:text-4xl">
-              Mesleki üyelikler
+              Mesleki Üyelikler
             </h2>
           </Reveal>
           <ul className="mt-8 grid gap-6 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-navy/15">
@@ -85,41 +84,34 @@ export default async function About() {
         </div>
       </section>
 
-      <section className="px-6 py-14 sm:px-8 sm:py-20" aria-labelledby="etkinlikler">
-        <div className="mx-auto max-w-6xl">
+      <section className="py-14 sm:py-20" aria-labelledby="etkinlikler">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
           <Reveal>
             <h2 id="etkinlikler" className="text-3xl sm:text-4xl">
-              Bilimsel ve mesleki etkinlikler
+              Bilimsel ve Mesleki Etkinlikler
             </h2>
             <p className="mt-3 max-w-2xl text-muted">Konuşmacı olarak yer aldığı konferanslar, seminerler, paneller ve vaka ek dersleri.</p>
           </Reveal>
 
           {editable && <div className="mt-6" data-edit-add="evt" data-edit-label="Etkinlik fotoğrafı ekle" />}
-          {photos.length > 0 && (
-            <div className="mt-8 sm:mt-10">
-              <Carousel
-                label="Etkinlik fotoğrafları"
-                itemClass="w-[78%] sm:w-[46%] lg:w-[31.5%]"
-                items={photos.map((p, i) => (
-                  <div key={p.src + i} data-edit-img={`evt:${i}`} className="relative aspect-[4/3] overflow-hidden rounded-[0.75rem] bg-sand shadow-[0_26px_50px_-34px_rgba(15,39,71,0.5)]">
-                    <Image
-                      src={p.src}
-                      alt={`Etkinlikten fotoğraf ${i + 1}`}
-                      fill
-                      placeholder={p.blur ? "blur" : undefined}
-                      blurDataURL={p.blur}
-                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 78vw"
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              />
-            </div>
-          )}
+        </div>
 
-          <div className="mt-8 sm:mt-10">
-            <ActivityAccordion groups={activities} />
-          </div>
+        {photos.length > 0 && (
+          <Reveal className="mt-8 sm:mt-10">
+            <Gallery
+              images={photos.map((p, i) => ({ src: p.src, alt: `Etkinlikten fotoğraf ${i + 1}`, blur: p.blur }))}
+              label="Etkinlik fotoğrafları"
+              limit={photos.length}
+              editPrefix="evt"
+              aspect="aspect-[3/4]"
+              itemClass="w-[66vw] shrink-0 snap-start sm:w-[36vw] lg:w-[min(24vw,22rem)]"
+              position="center 35%"
+            />
+          </Reveal>
+        )}
+
+        <div className="mx-auto mt-4 max-w-6xl px-6 sm:mt-6 sm:px-8">
+          <ActivityAccordion groups={activities} />
         </div>
       </section>
 

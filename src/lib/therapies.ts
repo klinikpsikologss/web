@@ -21,7 +21,7 @@ export type Therapy = {
 export const therapies: Therapy[] = [
   {
     slug: "bireysel-psikoterapi",
-    title: "Bireysel terapi",
+    title: "Bireysel Terapi",
     short:
       "Bireysel psikoterapi, kişinin yaşadığı psikolojik zorlanmayı anlamlandırmasına; duygu, düşünce, fiziksel belirti ve davranışları arasındaki ilişkileri fark etmesine ve ihtiyaç duyduğu alanlarda değişim sağlamasına yardımcı olmayı amaçlayan profesyonel bir süreçtir.",
     intro:
@@ -82,7 +82,7 @@ export const therapies: Therapy[] = [
   },
   {
     slug: "cift-terapisi",
-    title: "Çift terapisi",
+    title: "Çift Terapisi",
     short:
       "Çift terapisi, partnerlerin ilişkilerinde yaşadıkları güçlükleri anlamalarına, aralarındaki etkileşim ve iletişim örüntülerini fark etmelerine ve ilişkilerinde ihtiyaç duydukları alanlarda değişim sağlamalarına yardımcı olmayı amaçlayan profesyonel bir süreçtir.",
     intro:
@@ -142,7 +142,7 @@ export const therapies: Therapy[] = [
   },
   {
     slug: "online-psikoterapi",
-    title: "Online terapi",
+    title: "Online Terapi",
     short:
       "Online psikoterapi, terapist ve danışanın aynı fiziksel ortamda bulunmadan, güvenli bir dijital platform üzerinden görüntülü görüşmeler aracılığıyla bir araya geldiği profesyonel bir psikolojik destek sürecidir. Yüz yüze psikoterapide olduğu gibi kişinin yaşadığı psikolojik zorlanmaları anlamlandırmasına, duygu, düşünce ve davranışları arasındaki ilişkileri fark etmesine ve ihtiyaç duyduğu alanlarda değişim sağlamasına yardımcı olmayı amaçlar.",
     intro:

@@ -16,7 +16,7 @@ export async function Footer() {
           <div>
             <Logo variant="light" className="!h-14 sm:!h-16" />
             <Edit id="footer.tagline" as="p" className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-ivory/65">
-              Bilişsel ve Davranışçı Terapiler yaklaşımıyla Bolu’da yüz yüze ve online psikoterapi.
+              Bilişsel ve Davranışçı Terapiler yaklaşımıyla yüz yüze ve online psikoterapi.
             </Edit>
             <div className="mt-6 flex gap-3">
               <a href={site.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={social}>
@@ -79,7 +79,10 @@ export async function Footer() {
               </Link>
             </li>
           </ul>
-          <p>© {new Date().getFullYear()} Selin Sak. Tüm hakları saklıdır.</p>
+          <div className="md:text-right">
+            <p>© {new Date().getFullYear()} Selin Sak. Tüm hakları saklıdır.</p>
+            <p className="mt-1">Bolu, Türkiye</p>
+          </div>
         </div>
       </div>
     </footer>

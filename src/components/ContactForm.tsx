@@ -80,7 +80,7 @@ export function ContactForm() {
           <input id="email" name="email" type="email" placeholder="E-posta" autoComplete="email" className={box} />
         </Field>
       </div>
-      <p className="-mt-1 px-1 text-xs text-ivory/55">Size dönüş yapabilmem için telefon ya da e-postadan en az birini yazmanız yeterli.</p>
+      <p className="-mt-1 px-1 text-xs text-ivory/55">Size dönüş yapılabilmesi için telefon ya da e-postadan en az birini yazmanız yeterli.</p>
       <Field id="message" label="Mesajınız" required>
         <textarea id="message" name="message" required rows={5} placeholder="Mesajınız" className={`${box} min-h-40 resize-y`} />
       </Field>
@@ -119,12 +119,7 @@ export function ContactForm() {
       )}
 
       <button type="submit" disabled={state === "sending"} className="btn btn-light mt-2 disabled:opacity-60">
-        {state === "sending" ? "Gönderiliyor" : "Mesajı gönder"}
-        <span className="btn-dot">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        </span>
+        {state === "sending" ? "Gönderiliyor" : "Mesajı Gönder"}
       </button>
     </form>
   );

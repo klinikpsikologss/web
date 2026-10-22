@@ -143,13 +143,13 @@ a.bezel:hover,
   background: rgba(217, 198, 161, 0.22);
 }
 
-/* Düğmeler */
+/* Düğmeler: oksuz, yalnızca metin; yazıların her kelimesi büyük harfle başlar (metinde yazılı) */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
   border-radius: 999px;
-  padding: 0.5rem 0.5rem 0.5rem 1.6rem;
+  padding: 0.85rem 1.9rem;
   font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.01em;
@@ -161,25 +161,10 @@ a.bezel:hover,
 .btn:active {
   transform: scale(0.98);
 }
-.btn .btn-dot {
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 999px;
-  transition: transform 700ms var(--ease-soft);
-}
-.btn:hover .btn-dot {
-  transform: translate3d(3px, 0, 0);
-}
 .btn-primary {
   background: var(--color-navy);
   color: var(--color-ivory);
   box-shadow: 0 18px 34px -18px rgba(15, 39, 71, 0.65);
-}
-.btn-primary .btn-dot {
-  background: rgba(217, 198, 161, 0.22);
-  color: var(--color-gold);
 }
 .btn-primary:hover {
   background: var(--color-navy-soft);
@@ -189,9 +174,6 @@ a.bezel:hover,
   background: transparent;
   box-shadow: inset 0 0 0 1px rgba(15, 39, 71, 0.22);
 }
-.btn-ghost .btn-dot {
-  background: rgba(15, 39, 71, 0.07);
-}
 .btn-ghost:hover {
   background: rgba(15, 39, 71, 0.04);
 }
@@ -199,12 +181,30 @@ a.bezel:hover,
   background: var(--color-ivory);
   color: var(--color-navy);
 }
-.btn-light .btn-dot {
-  background: var(--color-navy);
-  color: var(--color-gold);
-}
 .btn-light:hover {
   background: #fff;
+}
+
+/* Altın üst başlık (eyebrow): tamamı büyük harf, biraz büyük punto, altında kısa ince altın çizgi */
+.eyebrow {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--color-gold-deep);
+}
+.eyebrow::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 1px;
+  margin-top: 0.85rem;
+  background: var(--color-gold-deep);
+}
+.eyebrow.is-center::after {
+  margin-inline: auto;
 }
 
 
@@ -235,8 +235,7 @@ a.bezel:hover,
   }
   .zoom-img,
   .bezel,
-  .btn,
-  .btn .btn-dot {
+  .btn {
     transition: none !important;
   }
 }
@@ -251,13 +250,12 @@ a.bezel:hover,
 /* Mobilde düğmeler yan yana sığsın */
 @media (max-width: 640px) {
   .btn {
-    gap: 0.5rem;
-    padding-left: 1.2rem;
+    padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
   }
-  .btn .btn-dot {
-    width: 2.25rem;
-    height: 2.25rem;
+  .eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.17em;
   }
 }
 

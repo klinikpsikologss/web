@@ -46,11 +46,11 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: "tr_TR",
       url: site.url,
       siteName: site.name,
-      title: site.name,
+      title: c.seo.title,
       description,
       images: hasAsset("/og-image.jpg") ? [{ url: "/og-image.jpg", width: 1200, height: 630, alt: site.name }] : undefined,
     },
-    twitter: { card: "summary_large_image", title: site.name, description },
+    twitter: { card: "summary_large_image", title: c.seo.title, description },
     icons: {
       icon: hasAsset("/favicon.ico")
         ? [

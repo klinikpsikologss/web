@@ -83,7 +83,7 @@ export function defaultContent(): Content {
       appointmentUrl: seedSite.appointmentUrl,
     },
     theme: { navy: "#0f2747", gold: "#d9c6a1" },
-    seo: { title: "Klinik Psikolog Selin Sak | Bolu Psikoterapi ve Çift Terapisi", description: "Bolu’da Klinik Psikolog Selin Sak ile Bilişsel ve Davranışçı Terapiler (BDT) temelli yüz yüze ve online bireysel psikoterapi ve çift terapisi." },
+    seo: { title: "Klinik Psikolog Selin Sak | Bireysel Terapi ve Çift Terapisi", description: "Klinik Psikolog Selin Sak ile Bilişsel ve Davranışçı Terapiler (BDT) temelli yüz yüze ve online bireysel psikoterapi ve çift terapisi." },
   };
 }
 

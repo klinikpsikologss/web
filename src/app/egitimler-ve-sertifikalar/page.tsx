@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbLd, webPageLd, withOg } from "@/lib/seo";
-import Image from "next/image";
 import { ContactBand, PageHero } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
-import { Carousel } from "@/components/Carousel";
+import { Gallery } from "@/components/Gallery";
+import { titleCase } from "@/lib/titlecase";
 import { getContent } from "@/lib/cms/content";
 import { getCertificates } from "@/lib/certificates";
 import { getBlur } from "@/lib/blur";
@@ -42,7 +42,7 @@ export default async function Education() {
           {groups.map((g) => (
             <div key={g.title}>
               <Reveal>
-                <h2 className="text-3xl sm:text-4xl">{g.title}</h2>
+                <h2 className="text-3xl sm:text-4xl">{titleCase(g.title)}</h2>
               </Reveal>
               <ul className="mt-6 border-t border-navy/10 sm:mt-8">
                 {g.items.map((item) => (
@@ -63,29 +63,24 @@ export default async function Education() {
       </section>
 
       {(certs.length > 0 || editable) && (
-        <section className="bg-sand/60 px-6 py-12 sm:px-8 sm:py-16" aria-label="Sertifikalar">
-          <div className="mx-auto max-w-6xl">
-            {editable && <div data-edit-add="cert" data-edit-label="Sertifika görseli ekle" />}
-            {certs.length > 0 && <Carousel
-              label="Sertifikalar"
-              itemClass="w-[78%] sm:w-[46%] lg:w-[31.5%]"
-              items={certs.map((c, i) => (
-                <a key={c.src + i} href={c.src} target="_blank" rel="noopener" data-edit-img={i < base.length ? `cert:${i}` : undefined} className="group relative block rounded-[0.75rem] bg-paper p-2.5 shadow-[0_26px_50px_-34px_rgba(15,39,71,0.5)] ring-1 ring-navy/10">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[0.4rem] bg-sand">
-                    <Image
-                      src={c.src}
-                      alt={c.caption ?? "Sertifika"}
-                      fill
-                      placeholder={c.blur ? "blur" : undefined}
-                      blurDataURL={c.blur}
-                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 78vw"
-                      className="zoom-img object-contain"
-                    />
-                  </div>
-                </a>
-              ))}
-            />}
-          </div>
+        <section className="bg-sand/60 py-12 sm:py-16" aria-label="Sertifikalar">
+          {editable && (
+            <div className="mx-auto max-w-6xl px-6 sm:px-8">
+              <div data-edit-add="cert" data-edit-label="Sertifika görseli ekle" />
+            </div>
+          )}
+          {certs.length > 0 && (
+            <Reveal>
+              <Gallery
+                images={certs.map((c, i) => ({ src: c.src, alt: c.caption ?? `Sertifika ${i + 1}`, blur: c.blur }))}
+                label="Sertifikalar"
+                limit={certs.length}
+                editPrefix="cert"
+                editLimit={base.length}
+                aspect="aspect-[3/2]"
+              />
+            </Reveal>
+          )}
         </section>
       )}
 

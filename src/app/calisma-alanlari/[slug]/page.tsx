@@ -113,7 +113,7 @@ export default async function SpecialtyPage({ params }: Props) {
             </div>
             {related.length > 0 && (
               <nav aria-label="İlgili başlıklar">
-                <p className="text-sm tracking-wide text-gold-deep">{catTitle(ct, cat.key, cat.title)}</p>
+                <p className="eyebrow">{catTitle(ct, cat.key, cat.title)}</p>
                 <ul className="mt-4 divide-y divide-navy/10 border-y border-navy/10">
                   {related.map((r) => (
                     <li key={r.slug}>

@@ -31,15 +31,15 @@ function Hero({ appointmentUrl }: { appointmentUrl: string }) {
         priority
         editId="hero.mobile"
         className="hero-photo absolute inset-x-0 top-0 -z-10 h-[29rem] sm:h-[38rem] lg:hidden"
-        position="78% 20%"
+        position="50% 22%"
       />
-      <Photo src="/selin-hero.jpg" alt="" sizes="100vw" editId="hero.desktop" className="hero-photo absolute inset-0 -z-10 hidden lg:block" position="70% 25%" />
+      <Photo src="/selin-hero.jpg" alt="" sizes="100vw" editId="hero.desktop" className="hero-photo absolute inset-0 -z-10 hidden lg:block" position="72% 30%" />
       <div
-        className="absolute inset-x-0 top-0 -z-10 h-[calc(29rem+2px)] bg-[linear-gradient(to_top,var(--color-ivory)_0%,rgb(248_245_238/0.92)_14%,rgb(248_245_238/0.5)_32%,transparent_62%)] sm:h-[calc(38rem+2px)] lg:inset-0 lg:h-full lg:bg-[linear-gradient(to_right,rgb(248_245_238/0.1)_0%,rgb(248_245_238/0.4)_35%,transparent_52%)]"
+        className="absolute inset-x-0 top-0 -z-10 h-[calc(29rem+2px)] bg-[linear-gradient(to_top,var(--color-ivory)_0%,rgb(248_245_238/0.55)_10%,rgb(248_245_238/0.2)_26%,transparent_48%)] sm:h-[calc(38rem+2px)] lg:inset-0 lg:h-full lg:bg-[linear-gradient(to_right,rgb(248_245_238/0.1)_0%,rgb(248_245_238/0.4)_35%,transparent_52%)]"
         aria-hidden="true"
       />
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 hidden h-28 bg-gradient-to-t from-ivory to-transparent lg:block" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 hidden h-14 bg-gradient-to-t from-ivory/70 to-transparent lg:block" aria-hidden="true" />
 
       <div className="mx-auto w-full max-w-6xl px-6 pb-14 pt-[25.5rem] sm:px-8 sm:pb-20 sm:pt-[34rem] lg:flex lg:min-h-[46rem] lg:items-center lg:pb-28 lg:pt-44 xl:min-h-[52rem]">
         <div className="relative max-w-xl lg:max-w-[31rem] lg:[&_h1]:[text-shadow:0_0_28px_rgba(255,255,255,0.45)] lg:[&_p]:[text-shadow:0_0_20px_rgba(255,255,255,0.4)]">
@@ -50,7 +50,7 @@ function Hero({ appointmentUrl }: { appointmentUrl: string }) {
 
           <div className="hero-in mt-6 flex items-center gap-5 sm:mt-8" style={d(240)}>
             <div>
-              <Edit id="home.hero.role" as="p" className="text-sm tracking-wide text-gold-deep">
+              <Edit id="home.hero.role" as="p" className="eyebrow mb-3">
                 Klinik Psikolog
               </Edit>
               <Edit id="home.hero.name" as="p" className="font-display text-3xl text-navy">
@@ -60,7 +60,7 @@ function Hero({ appointmentUrl }: { appointmentUrl: string }) {
           </div>
 
           <Edit id="home.hero.desc" as="p" multiline className="hero-in mt-4 text-[0.97rem] text-ink sm:mt-6 sm:text-lg" style={d(360)}>
-            Her danışanın deneyiminin kendine özgü olduğunu gözeterek terapi sürecini bilimsel temeller ve etik ilkeler doğrultusunda, bireysel ihtiyaçlara göre şekillendiririm.
+            Her danışanın deneyiminin kendine özgü olduğunu gözeterek terapi sürecini bilimsel temeller ve etik ilkeler doğrultusunda, bireysel ihtiyaçlara göre şekillendirilir. Güvenli, yargısız ve iş birliğine dayalı bir terapötik ilişki geliştirmeyi amaçlar.
           </Edit>
 
           <div className="hero-in mt-7 flex gap-3 sm:mt-9 sm:gap-4" style={d(480)}>
@@ -82,7 +82,7 @@ const sections: Record<string, (c: C) => ReactNode | Promise<ReactNode>> = {
       <div className="pointer-events-none absolute left-[18%] top-[48%] -z-10 h-72 w-72 rounded-full bg-gold/55 max-sm:hidden blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute right-[16%] top-[30%] -z-10 h-80 w-80 rounded-full bg-navy/[0.16] max-sm:hidden blur-3xl" aria-hidden="true" />
       <div className="mx-auto max-w-6xl">
-        <SectionHeading editKey="home.hizmetler" eyebrow="Hizmetler" title="Size uygun olan biçimde, birlikte çalışırız" />
+        <SectionHeading editKey="home.hizmetler" eyebrow="Terapi Hizmetleri" title="Süreç iş birliği içinde kişiye özgü planlanır." />
         <ul className="mt-10 -mx-6 flex scroll-pl-6 snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-14 pt-2 -mb-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mx-8 sm:scroll-pl-8 sm:px-8 md:mx-0 md:scroll-pl-0 md:mb-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:pt-0 md:grid-cols-3 md:gap-8">
           {c.therapies.map((t, i) => (
             <Reveal as="li" key={t.slug} delay={i * 120} className="w-[84%] shrink-0 snap-start md:w-auto">
@@ -125,12 +125,12 @@ const sections: Record<string, (c: C) => ReactNode | Promise<ReactNode>> = {
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading
             editKey="home.alanlar"
-            eyebrow="Çalışma alanları"
-            title="Hangi konularda destek veriyorum"
-            lead="Kaygıdan ilişki sorunlarına, yeme bozukluklarından psikoonkolojiye uzanan alanlarda çalışıyorum."
+            eyebrow="Psikoterapi"
+            title="Çalışma Alanları"
+            lead="Kaygı sorunları, travmatik stres ve depresyon başta olmak üzere çeşitli klinik alanlarda çalışıyorum."
           />
           <Reveal delay={150} className="mt-10">
-            <Button href="/calisma-alanlari">Tüm çalışma alanları</Button>
+            <Button href="/calisma-alanlari">Tüm Çalışma Alanları</Button>
           </Reveal>
         </div>
 
@@ -176,11 +176,11 @@ const sections: Record<string, (c: C) => ReactNode | Promise<ReactNode>> = {
           <SectionHeading editKey="home.hakkimda" eyebrow="Hakkımda" title="Formülasyon temelli, bilimsel ve etik bir yaklaşım" />
           <Reveal delay={120}>
             <Edit id="home.hakkimda.text" as="p" multiline className="mt-8 max-w-xl text-lg text-muted">
-              Bilişsel ve Davranışçı Terapiler (BDT) yaklaşımıyla çalışıyor, yaşadığınız zorlanmaları yalnızca belirtiler üzerinden değil, onları sürdüren süreçler üzerinden birlikte ele alıyorum. Kendi kliniğimde 900’ü aşkın seans deneyimimle, yüz yüze ve online psikoterapi yürütüyorum.
+              Bilişsel ve Davranışçı Terapiler (BDT) yaklaşımıyla, danışanların yaşadıkları güçlükleri yalnızca belirtiler üzerinden değil, bu güçlüklerin ortaya çıkmasında ve sürmesinde rol oynayan süreçler çerçevesinde ele alıyorum. Kendi kliniğimde, yüz yüze ve online psikoterapi süreçlerini yürütüyorum.
             </Edit>
             <div className="mt-10">
               <Button href="/hakkimda" variant="ghost">
-                Devamını oku
+                Devamını Oku
               </Button>
             </div>
           </Reveal>
@@ -196,7 +196,7 @@ const sections: Record<string, (c: C) => ReactNode | Promise<ReactNode>> = {
           <SectionHeading editKey="home.blog" eyebrow="Blog" title="Güncel yazılar" />
           <Reveal>
             <Button href="/blog" variant="ghost">
-              Tüm yazılar
+              Tüm Yazılar
             </Button>
           </Reveal>
         </div>
@@ -223,12 +223,12 @@ const sections: Record<string, (c: C) => ReactNode | Promise<ReactNode>> = {
           <div className="lg:sticky lg:top-32 lg:self-start">
             <SectionHeading
               editKey="home.sss"
-              eyebrow="Merak edilenler"
-              title="Sık sorulan sorular"
-              lead="Terapi sürecine dair en çok sorulan sorular. Aklınızdaki başka bir soru için bize yazabilirsiniz."
+              eyebrow="Merak Edilenler"
+              title="Sık Sorulan Sorular"
+              lead="Terapi süreci hakkında merak edilenler. Diğer sorularınız için iletişime geçebilirsiniz."
             />
             <Reveal delay={150} className="mt-10">
-              <Button href="/sss">Tüm sorular</Button>
+              <Button href="/sss">Tüm Sorular</Button>
             </Reveal>
           </div>
           <Reveal delay={100}>

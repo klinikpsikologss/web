@@ -21,7 +21,7 @@ export default async function Working() {
       <PageHero
         editKey="hizmetler"
         eyebrow="Hizmetler"
-        title="Terapi hizmetlerim"
+        title="Terapi Hizmetleri"
         lead="Psikoterapi hizmetlerimi bireysel terapi ve çift terapisi alanında, yüz yüze ve online olarak yürütmekteyim."
       />
       <section className="relative isolate overflow-hidden px-6 sm:px-8 section-pb">

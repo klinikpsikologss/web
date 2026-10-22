@@ -12,8 +12,7 @@ export function BlogFilter({ categories }: { categories: string[] }) {
   useEffect(() => {
     document.querySelectorAll<HTMLElement>("[data-post-cat]").forEach((el) => {
       const target = el.closest("li") ?? el;
-      // Öne çıkan yazı "Tümü"de yukarıda zaten görünür; bir konu seçilince listede de yer alır
-      target.hidden = active === "Tümü" ? el.dataset.postFeatured === "1" : el.dataset.postCat !== active;
+      target.hidden = active !== "Tümü" && el.dataset.postCat !== active;
     });
   }, [active]);
 

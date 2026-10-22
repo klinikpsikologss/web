@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Arrow } from "./Icons";
 import { Reveal } from "./Reveal";
+import { Photo } from "./Photo";
+import { titleCase } from "@/lib/titlecase";
 import { Edit } from "./cms/Edit";
 import { getContent, siteOf } from "@/lib/cms/content";
 
@@ -17,14 +18,7 @@ export function Button({
   external?: boolean;
 }) {
   const cls = `btn btn-${variant}`;
-  const inner = (
-    <>
-      {children}
-      <span className="btn-dot">
-        <Arrow />
-      </span>
-    </>
-  );
+  const inner = children;
   return external || href.startsWith("tel:") || href.startsWith("mailto:") ? (
     <a href={href} className={cls} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
       {inner}
@@ -70,12 +64,12 @@ export function SectionHeading({
   return (
     <Reveal className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       {eyebrow && (
-        <Txt editKey={editKey} suffix="eyebrow" as="p" className={`mb-5 inline-flex items-center gap-3 text-sm tracking-wide text-gold-deep ${align === "center" ? "justify-center" : ""}`}>
+        <Txt editKey={editKey} suffix="eyebrow" as="p" className={`eyebrow mb-5 ${align === "center" ? "is-center" : ""}`}>
           {eyebrow}
         </Txt>
       )}
       <Txt editKey={editKey} suffix="title" as="h2" className="text-4xl leading-[1.1] sm:text-5xl">
-        {title}
+        {titleCase(title)}
       </Txt>
       {lead && (
         <Txt editKey={editKey} suffix="lead" as="p" className="mt-6 text-lg text-muted">
@@ -93,25 +87,40 @@ export function PageHero({
   lead,
   children,
   editKey,
+  image,
 }: {
   eyebrow?: string;
   title: string;
   lead?: string;
   children?: ReactNode;
   editKey?: string;
+  /** Giriş alanına arka plan olarak konan fotoğraf (sağda, sola doğru kremle erir) */
+  image?: { src: string; position?: string };
 }) {
   return (
-    <section className="relative overflow-hidden px-6 pb-12 pt-32 sm:px-8 sm:pb-16 sm:pt-48 lg:pb-20">
-      <div className="pointer-events-none absolute -right-36 -top-48 h-[26rem] w-[26rem] rounded-full bg-gold/25 max-sm:hidden blur-3xl" aria-hidden="true" />
+    <section className="relative isolate overflow-hidden px-6 pb-12 pt-32 sm:px-8 sm:pb-16 sm:pt-48 lg:pb-20">
+      {image ? (
+        <>
+          <Photo src={image.src} alt="" sizes="100vw" priority position={image.position ?? "center"} className="absolute inset-0 -z-10 lg:left-[28%]" />
+          <div
+            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-ivory)_0%,rgb(248_245_238/0.9)_38%,rgb(248_245_238/0.45)_62%,rgb(248_245_238/0.1)_100%)] max-lg:bg-ivory/80 lg:bg-[linear-gradient(to_right,var(--color-ivory)_28%,rgb(248_245_238/0.55)_52%,transparent_82%)]"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-ivory to-transparent" aria-hidden="true" />
+        </>
+      ) : (
+        <div className="pointer-events-none absolute -right-36 -top-48 h-[26rem] w-[26rem] rounded-full bg-gold/25 max-sm:hidden blur-3xl" aria-hidden="true" />
+      )}
       <div className="relative mx-auto max-w-6xl">
         {eyebrow && (
-          <Txt editKey={editKey} suffix="eyebrow" as="p" className="hero-in mb-6 inline-flex items-center gap-3 text-sm tracking-wide text-gold-deep">
+          <Txt editKey={editKey} suffix="eyebrow" as="p" className="hero-in eyebrow mb-6">
             {eyebrow}
           </Txt>
         )}
         <Txt editKey={editKey} suffix="title" as="h1" className="hero-in max-w-3xl text-5xl leading-[1.05] sm:text-6xl lg:text-7xl" style={{ "--d": "100ms" } as React.CSSProperties}>
-          {title}
+          {titleCase(title)}
         </Txt>
+        {!eyebrow && <span className="hero-in mt-6 block h-px w-12 bg-gold-deep" style={{ "--d": "160ms" } as React.CSSProperties} aria-hidden="true" />}
         {lead && (
           <Txt editKey={editKey} suffix="lead" as="p" className="hero-in mt-8 max-w-2xl text-lg text-muted sm:text-xl" style={{ "--d": "220ms" } as React.CSSProperties}>
             {lead}
@@ -129,8 +138,8 @@ export function PageHero({
 
 /** Sayfa altı randevu çağrısı */
 export async function ContactBand({
-  title = "Terapi süreci hakkında bilgi almak veya randevu oluşturmak için benimle iletişime geçebilirsiniz.",
-  cta = "İletişime geç",
+  title = "Terapi süreci hakkında bilgi almak veya randevu oluşturmak için iletişime geçebilirsiniz.",
+  cta = "İletişime Geç",
   editKey = "contact.band",
 }: {
   title?: string;

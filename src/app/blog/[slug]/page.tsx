@@ -11,7 +11,7 @@ import { ReadingProgress } from "@/components/ReadingProgress";
 import { ShareButton } from "@/components/ShareButton";
 import { Toc, type TocItem } from "@/components/Toc";
 import { Mark } from "@/components/Icons";
-import { getContent, getPublished, siteOf, postBySlug, readingMinutesOf, visiblePosts } from "@/lib/cms/content";
+import { getContent, getPublished, siteOf, postBySlug, visiblePosts } from "@/lib/cms/content";
 import { slugify } from "@/lib/posts";
 import { postCover } from "@/components/PostCard";
 import { site } from "@/lib/site";
@@ -109,10 +109,7 @@ export default async function PostPage({ params }: Props) {
                 <Mark className="h-6 w-6" />
               </span>
             )}
-            <div className="text-sm leading-tight">
-              <p className="font-medium text-navy">Klinik Psikolog Selin Sak</p>
-              <p className="mt-1 text-muted">{readingMinutesOf(p)} dk okuma</p>
-            </div>
+            <p className="text-sm font-medium text-navy">Klinik Psikolog Selin Sak</p>
           </div>
         </div>
       </header>
@@ -228,7 +225,7 @@ export default async function PostPage({ params }: Props) {
               <p className="text-sm text-gold-deep">Yazar</p>
               <p className="mt-1 font-display text-3xl text-navy">Selin Sak</p>
               <p className="mt-2 max-w-xl text-muted">
-                Klinik Psikolog. Bilişsel ve Davranışçı Terapiler yaklaşımıyla Bolu’da yüz yüze ve online psikoterapi.
+                Klinik Psikolog. Bilişsel ve Davranışçı Terapiler yaklaşımıyla yüz yüze ve online psikoterapi.
               </p>
             </div>
             <div className="justify-self-start"><Button href={siteOf(c).appointmentUrl} external>Randevu Al</Button></div>
@@ -241,7 +238,7 @@ export default async function PostPage({ params }: Props) {
         <section className="px-6 sm:px-8 section-pb">
           <div className="mx-auto max-w-6xl">
             <Reveal>
-              <h2 className="text-3xl sm:text-4xl">Okumaya devam edin</h2>
+              <h2 className="text-3xl sm:text-4xl">Okumaya Devam Edin</h2>
             </Reveal>
             <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r, i) => (

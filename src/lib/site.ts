@@ -5,7 +5,7 @@ export const site = {
   role: "Klinik Psikolog",
   url: "https://www.klinikpsikologselinsak.com",
   description:
-    "Klinik Psikolog Selin Sak | Bilişsel ve Davranışçı Terapiler (BDT) yaklaşımıyla Bolu’da yüz yüze ve online yetişkinlerle bireysel psikoterapi ve çift terapisi hizmeti sunmaktadır.",
+    "Klinik Psikolog Selin Sak | Bilişsel ve Davranışçı Terapiler (BDT) yaklaşımıyla yüz yüze ve online yetişkinlerle bireysel psikoterapi ve çift terapisi hizmeti sunmaktadır.",
   phone: "0532 272 36 14",
   phoneHref: "tel:+905322723614",
   whatsappHref: "https://wa.me/905322723614",

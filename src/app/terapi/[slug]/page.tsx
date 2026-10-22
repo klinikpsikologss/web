@@ -87,7 +87,7 @@ export default async function TherapyPage({ params }: Props) {
           </div>
 
           <Reveal>
-            <p className="text-sm tracking-wide text-gold-deep">Diğer çalışma biçimleri</p>
+            <p className="eyebrow">Diğer Çalışma Biçimleri</p>
             <ul className="mt-4 divide-y divide-navy/10 border-y border-navy/10">
               {others.map((o) => (
                 <li key={o.slug}>

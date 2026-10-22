@@ -84,7 +84,7 @@ export const CategoryIcon = ({ name, ...p }: { name: string } & P) => {
     ),
     ozel: (
       <>
-        <path d="M12 20s-7-4.300-7-10a4 4 0 0 1 7-2.500A4 4 0 0 1 19 10c0 5.700-7 10-7 10Z" />
+        <path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3" />
       </>
     ),
   };
