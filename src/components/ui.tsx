@@ -54,12 +54,15 @@ export function SectionHeading({
   lead,
   align = "left",
   editKey,
+  plain = false,
 }: {
   eyebrow?: string;
   title: string;
   lead?: string;
   align?: "left" | "center";
   editKey?: string;
+  /** Başlığı Title Case'e çevirmeden, yazıldığı gibi bırakır (cümle düzeni) */
+  plain?: boolean;
 }) {
   return (
     <Reveal className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
@@ -69,7 +72,7 @@ export function SectionHeading({
         </Txt>
       )}
       <Txt editKey={editKey} suffix="title" as="h2" className="text-4xl leading-[1.1] sm:text-5xl">
-        {titleCase(title)}
+        {plain ? title : titleCase(title)}
       </Txt>
       {lead && (
         <Txt editKey={editKey} suffix="lead" as="p" className="mt-6 text-lg text-muted">

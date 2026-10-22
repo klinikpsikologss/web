@@ -82,7 +82,7 @@ const sections: Record<string, (c: C) => ReactNode | Promise<ReactNode>> = {
       <div className="pointer-events-none absolute left-[18%] top-[48%] -z-10 h-72 w-72 rounded-full bg-gold/55 max-sm:hidden blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute right-[16%] top-[30%] -z-10 h-80 w-80 rounded-full bg-navy/[0.16] max-sm:hidden blur-3xl" aria-hidden="true" />
       <div className="mx-auto max-w-6xl">
-        <SectionHeading editKey="home.hizmetler" eyebrow="Terapi Hizmetleri" title="Süreç iş birliği içinde kişiye özgü planlanır." />
+        <SectionHeading editKey="home.hizmetler" eyebrow="Terapi Hizmetleri" title="Süreç iş birliği içinde kişiye özgü planlanır" plain />
         <ul className="mt-10 -mx-6 flex scroll-pl-6 snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-14 pt-2 -mb-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mx-8 sm:scroll-pl-8 sm:px-8 md:mx-0 md:scroll-pl-0 md:mb-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:pt-0 md:grid-cols-3 md:gap-8">
           {c.therapies.map((t, i) => (
             <Reveal as="li" key={t.slug} delay={i * 120} className="w-[84%] shrink-0 snap-start md:w-auto">
