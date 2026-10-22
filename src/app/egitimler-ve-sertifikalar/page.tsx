@@ -31,6 +31,7 @@ export default async function Education() {
       <JsonLd data={[breadcrumbLd([{ name: "Eğitimler ve Sertifikalar", path: "/egitimler-ve-sertifikalar" }]), webPageLd({ type: "WebPage", name: "Eğitimler ve Sertifikalar", path: "/egitimler-ve-sertifikalar" })]} />
       <PageHero
         editKey="egitim"
+        eyebrow="Akademik Birikim"
         title="Eğitimler ve sertifikalar"
         lead="Akademik birikimi ve klinik uygulamaları destekleyen eğitim, süpervizyon ve mesleki gelişim süreçleri."
       />
