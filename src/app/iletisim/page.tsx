@@ -9,8 +9,8 @@ import { Edit } from "@/components/cms/Edit";
 import { getContent, siteOf } from "@/lib/cms/content";
 
 export const metadata: Metadata = withOg({
-  title: { absolute: "Randevu ve İletişim | Bolu Psikolog Selin Sak" },
-  description: "Klinik Psikolog Selin Sak ile iletişime geçin ve randevu oluşturun. Bolu, Merkez. Yüz yüze ve online görüşme.",
+  title: { absolute: "Randevu ve İletişim | Klinik Psikolog Selin Sak" },
+  description: "Klinik Psikolog Selin Sak ile iletişime geçin ve randevu oluşturun. Yüz yüze ve online görüşme.",
   alternates: { canonical: "/iletisim" },
 });
 

@@ -8,9 +8,9 @@ import { faqJsonLd } from "@/lib/faq";
 import { getContent } from "@/lib/cms/content";
 
 export const metadata: Metadata = withOg({
-  title: { absolute: "Sık Sorulan Sorular | Bolu Psikolog Selin Sak" },
+  title: { absolute: "Sık Sorulan Sorular | Klinik Psikolog Selin Sak" },
   description:
-    "Psikoterapi süreci, ilk seans, online terapi, gizlilik ve randevu hakkında sık sorulan soruların cevapları. Klinik Psikolog Selin Sak, Bolu.",
+    "Psikoterapi süreci, ilk seans, online terapi, gizlilik ve randevu hakkında sık sorulan soruların cevapları. Klinik Psikolog Selin Sak.",
   alternates: { canonical: "/sss" },
 });
 

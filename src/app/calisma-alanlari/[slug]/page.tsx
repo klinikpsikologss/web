@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!s) return {};
   const filled = !!s.body?.length;
   return withOg({
-    title: { absolute: `${s.title} | Bolu Psikolog Selin Sak` },
-    description: s.summary ? `${s.summary} Bolu’da Klinik Psikolog Selin Sak ile yüz yüze ve online psikoterapi.` : `${s.title} konusunda Klinik Psikolog Selin Sak ile Bolu’da yüz yüze ve online psikoterapi.`,
+    title: { absolute: `${s.title} | Klinik Psikolog Selin Sak` },
+    description: s.summary ? `${s.summary} Klinik Psikolog Selin Sak ile yüz yüze ve online psikoterapi.` : `${s.title} konusunda Klinik Psikolog Selin Sak ile yüz yüze ve online psikoterapi.`,
     alternates: { canonical: `/calisma-alanlari/${s.slug}` },
     // İçerik yazılana kadar boş sayfalar arama sonuçlarında görünmesin.
     robots: filled ? undefined : { index: false, follow: true },

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const t = therapyBySlug(await getContent(), slug);
   if (!t) return {};
-  return withOg({ title: { absolute: `${t.title} | Bolu Psikolog Selin Sak` }, description: t.short, alternates: { canonical: `/terapi/${t.slug}` } });
+  return withOg({ title: { absolute: `${t.title} | Klinik Psikolog Selin Sak` }, description: t.short, alternates: { canonical: `/terapi/${t.slug}` } });
 }
 
 export default async function TherapyPage({ params }: Props) {

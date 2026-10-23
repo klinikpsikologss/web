@@ -9,7 +9,7 @@ import { getContent } from "@/lib/cms/content";
 
 export const metadata: Metadata = withOg({
   title: { absolute: "Terapi Hizmetleri: Bireysel, Çift ve Online | Selin Sak" },
-  description: "Bireysel psikoterapi, çift terapisi ve online psikoterapi. Bolu’da yüz yüze ve online olarak yürütülen terapi hizmetleri.",
+  description: "Bireysel psikoterapi, çift terapisi ve online psikoterapi. Yüz yüze ve online olarak yürütülen terapi hizmetleri.",
   alternates: { canonical: "/hizmetler" },
 });
 

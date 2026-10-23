@@ -8,8 +8,8 @@ import { getClinicPhotos } from "@/lib/gallery";
 import { getContent } from "@/lib/cms/content";
 
 export const metadata: Metadata = withOg({
-  title: { absolute: "Klinik Görselleri | Bolu Psikolog Selin Sak" },
-  description: "Klinik Psikolog Selin Sak’ın Bolu’daki kliniğinden görüntüler: terapi odası ve bekleme alanı. Görüşmelerin yapıldığı sakin ve güvenli ortam.",
+  title: { absolute: "Klinik Görselleri | Klinik Psikolog Selin Sak" },
+  description: "Klinik Psikolog Selin Sak’ın kliniğinden görüntüler: terapi odası ve bekleme alanı. Görüşmelerin yapıldığı sakin ve güvenli ortam.",
   alternates: { canonical: "/klinik-gorselleri" },
 });
 

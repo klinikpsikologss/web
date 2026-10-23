@@ -12,7 +12,7 @@ import { getContent } from "@/lib/cms/content";
 import { getEventPhotos } from "@/lib/event-photos";
 
 export const metadata: Metadata = withOg({
-  title: { absolute: "Hakkımda | Bolu Klinik Psikolog Selin Sak" },
+  title: { absolute: "Hakkımda | Klinik Psikolog Selin Sak" },
   description:
     "Klinik Psikolog Selin Sak: Başkent Üniversitesi psikoloji, Beykoz Üniversitesi klinik psikoloji yüksek lisans. BDT, Gottman çift terapisi ve psikoonkoloji eğitimleri; 1000 saatin üzerinde seans deneyimi.",
   alternates: { canonical: "/hakkimda" },
