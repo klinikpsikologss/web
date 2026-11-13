@@ -30,7 +30,7 @@ export default async function Faqs() {
         </div>
         <JsonLd data={faqJsonLd(faqs)} />
       </section>
-      <ContactBand title="Aklınızdaki başka bir soru mu var? Benimle iletişime geçebilirsiniz." />
+      <ContactBand title="Diğer sorularınız için iletişime geçebilirsiniz." />
     </>
   );
 }

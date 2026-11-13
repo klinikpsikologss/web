@@ -34,13 +34,13 @@ export async function saveUpload(file: File): Promise<MediaItem> {
   const input = Buffer.from(await file.arrayBuffer());
   let out: { data: Buffer; info: { width: number; height: number } };
   try {
-    out = await sharp(input, { failOn: "error" })
+    out = await sharp(input, { failOn: "none" })
       .rotate()
       .resize({ width: 2600, height: 2600, fit: "inside", withoutEnlargement: true })
       .webp({ quality: 88 })
       .toBuffer({ resolveWithObject: true });
   } catch {
-    throw new Error("Görsel okunamadı. Dosya bozuk olabilir.");
+    throw new Error("Görsel okunamadı. Dosya bozuk olabilir veya desteklenmeyen bir biçimde (ör. iPhone HEIC) olabilir; lütfen JPG/PNG olarak kaydedip tekrar deneyin.");
   }
   if (cloudinaryOn) {
     const params = { folder: "selinsak", timestamp: String(Math.floor(Date.now() / 1000)) };
